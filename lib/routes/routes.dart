@@ -8,6 +8,10 @@ class AppRoutes {
     GetPage(
         name: SplashScreen.ruta,
         page: () => const SplashScreen(),
+        transition: Transition.cupertino),
+    GetPage(
+        name: IntroScreen.ruta,
+        page: () => const IntroScreen(),
         transition: Transition.cupertino)
   ];
 }
