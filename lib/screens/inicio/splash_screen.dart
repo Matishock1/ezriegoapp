@@ -13,8 +13,7 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorSettings.primario,
-      body: SafeArea(
-          child: Container(
+      body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
@@ -41,24 +40,24 @@ class SplashScreen extends StatelessWidget {
                   children: [
                     const SplashAnimation(),
                     Positioned(
-                      top: 5,
+                      top: 55,
                       right: -290,
                       child: SvgPicture.asset(
                         'assets/svg/leaf.svg',
                         width: MediaQuery.of(context).size.width,
-                        height: MediaQuery.of(context).size.height * 0.98,
+                        height: MediaQuery.of(context).size.height * 0.95,
                       ),
                     )
                   ],
                 );
               }
             }),
-      )),
+      ),
     );
   }
 
   Future checkEstado(BuildContext context) async {
-    await Future.delayed(const Duration(seconds: 3));
+    await Future.delayed(const Duration(seconds: 10));
     Get.offAllNamed(IntroScreen.ruta);
     return '';
   }

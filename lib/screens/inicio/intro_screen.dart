@@ -9,8 +9,7 @@ class IntroScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SafeArea(
-            child: Container(
+        body: Container(
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
       decoration: const BoxDecoration(
@@ -20,17 +19,18 @@ class IntroScreen extends StatelessWidget {
               end: Alignment.bottomCenter,
               colors: [
             ColorSettings.backgroundIntroTop,
-            ColorSettings.backgroundIntroBot
+            ColorSettings.backgroundIntroTop
           ],
               stops: [
             0.9,
             1
           ])),
-      child: Stack(
+      child: SafeArea(
+          child: Stack(
         children: [
           Positioned(
             top: 5,
-            right: -290,
+            right: -300,
             child: SvgPicture.asset(
               'assets/svg/leaf.svg',
               width: MediaQuery.of(context).size.width,
@@ -39,7 +39,7 @@ class IntroScreen extends StatelessWidget {
           ),
           const Center(child: Text('Bienvenido')),
         ],
-      ),
-    )));
+      )),
+    ));
   }
 }
