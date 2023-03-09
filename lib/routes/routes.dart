@@ -11,7 +11,7 @@ class AppRoutes {
         transition: Transition.cupertino),
     GetPage(
         name: IntroScreen.ruta,
-        page: () => const IntroScreen(),
+        page: () => IntroScreen(),
         transition: Transition.cupertino)
   ];
 }
