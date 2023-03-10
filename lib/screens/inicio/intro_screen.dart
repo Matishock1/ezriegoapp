@@ -1,7 +1,9 @@
 import 'package:ezriegoapp/constants/colores.dart';
+import 'package:ezriegoapp/screens/screens.dart';
 import 'package:ezriegoapp/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 class IntroScreen extends StatelessWidget {
   IntroScreen({super.key});
@@ -21,7 +23,7 @@ class IntroScreen extends StatelessWidget {
               end: Alignment.bottomCenter,
               colors: [
             ColorSettings.backgroundIntroTop,
-            ColorSettings.backgroundIntroTop
+            ColorSettings.backgroundIntroBot
           ],
               stops: [
             0.9,
@@ -100,7 +102,9 @@ class IntroScreen extends StatelessWidget {
                               children: [
                                 Expanded(
                                   child: ElevatedButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Get.offNamed(TabScreen.ruta);
+                                    },
                                     style: ElevatedButton.styleFrom(
                                       backgroundColor: ColorSettings.primario,
                                       elevation: 0,

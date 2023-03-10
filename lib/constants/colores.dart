@@ -7,10 +7,14 @@ class ColorSettings {
 
   static const Color backgroundIntroTop = Color(0xffE7EFF5);
   static const Color backgroundIntroBot = Color(0xffEFFAFC);
+  static const Color backgroundAppTop = Color(0xffF3F7FA);
+  static const Color backgroundAppBot = Color(0xffFFFFFF);
 
   static const Color icons = Color(0xffCDD4DA);
 
   static const Color negro = Color.fromARGB(255, 0, 0, 0);
+  static const Color negro2 = Color(0xff333333);
+
   static const Color blanco = Color.fromARGB(255, 255, 255, 255);
 
   static const Color textoFooter = Color(0xff7C9CB8);
