@@ -58,7 +58,7 @@ class SplashScreen extends StatelessWidget {
 
   Future checkEstado(BuildContext context) async {
     await Future.delayed(const Duration(seconds: 3));
-    Get.offAllNamed(IntroScreen.ruta);
+    Get.toNamed(IntroScreen.ruta);
     return '';
   }
 }
