@@ -49,35 +49,56 @@ class BottonNavigation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: Platform.isAndroid
-            ? kBottomNavigationBarHeight
-            : kBottomNavigationBarHeight + 15,
-        color: ColorSettings.primario,
+        height: Platform.isAndroid ? 85 : 85 + 15,
+        decoration: const BoxDecoration(
+          color: ColorSettings.blanco,
+          boxShadow: [
+            BoxShadow(
+                color: ColorSettings.sombraTab,
+                offset: Offset(0, -6),
+                spreadRadius: -3,
+                blurRadius: 10)
+          ],
+        ),
         child: GetBuilder<TabsController>(builder: (controlador) {
           return Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               BotonNavigator(
-                icono: 'assets/svg/fingerprint.svg',
+                icono: 'assets/svg/house.svg',
                 onTap: () {
                   controlador.currentPage = 0;
                 },
                 seleccionado: controlador.currentPage == 0,
               ),
               BotonNavigator(
-                icono: 'assets/svg/isologotipo.svg',
+                icono: 'assets/svg/droplet.svg',
                 onTap: () {
                   controlador.currentPage = 1;
                 },
                 seleccionado: controlador.currentPage == 1,
               ),
               BotonNavigator(
-                icono: 'assets/svg/bell.svg',
+                icono: 'assets/svg/clock.svg',
                 onTap: () {
                   controlador.currentPage = 2;
                 },
                 seleccionado: controlador.currentPage == 2,
+              ),
+              BotonNavigator(
+                icono: 'assets/svg/graph_down.svg',
+                onTap: () {
+                  controlador.currentPage = 3;
+                },
+                seleccionado: controlador.currentPage == 3,
+              ),
+              BotonNavigator(
+                icono: 'assets/svg/person.svg',
+                onTap: () {
+                  controlador.currentPage = 4;
+                },
+                seleccionado: controlador.currentPage == 4,
               ),
             ],
           );

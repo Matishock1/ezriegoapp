@@ -22,5 +22,7 @@ class ColorSettings {
   static const Color textButton = Color(0xff0284C7);
   static const Color textoHuella = Color(0xff85909A);
 
+  static const Color sombraTab = Color.fromARGB(25, 34, 101, 135);
+
   static const durationAnimation = 1300;
 }
