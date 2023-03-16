@@ -33,10 +33,10 @@ class AppTheme {
           fontWeight: FontWeight.bold,
         ),
         titleLarge: GoogleFonts.nunito(
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-            letterSpacing: 0,
-            color: ColorSettings.negro),
+            fontSize: 36,
+            fontWeight: FontWeight.w800,
+            height: 1.16,
+            color: ColorSettings.blanco),
         titleMedium: GoogleFonts.nunito(
             fontSize: 15,
             fontWeight: FontWeight.w500,

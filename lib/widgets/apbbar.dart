@@ -11,12 +11,16 @@ class CustomAppBar extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 30),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
         children: [
           Expanded(
             flex: 3,
-            child: SvgPicture.asset(home != null && home == true
-                ? 'assets/svg/isologo_pequeno.svg'
-                : 'assets/svg/chevron.svg'),
+            child: SvgPicture.asset(
+              home != null && home == true
+                  ? 'assets/svg/isologo_pequeno.svg'
+                  : 'assets/svg/chevron.svg',
+              alignment: Alignment.centerLeft,
+            ),
           ),
           Expanded(
               flex: 8,
@@ -27,23 +31,26 @@ class CustomAppBar extends StatelessWidget {
               flex: 2,
               child: SizedBox(
                 width: MediaQuery.of(context).size.width * 0.10,
-                child: Stack(
-                  children: [
-                    SvgPicture.asset(
-                      'assets/svg/bell.svg',
-                      colorFilter: ColorFilter.mode(
-                          home != null && home == true
-                              ? ColorSettings.blanco
-                              : ColorSettings.negro2,
-                          BlendMode.srcIn),
-                    ),
-                    Positioned(
-                        left: 18,
-                        child: CircleAvatar(
-                          backgroundColor: ColorSettings.terciario,
-                          radius: MediaQuery.of(context).size.height * 0.009,
-                        ))
-                  ],
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: Stack(
+                    children: [
+                      SvgPicture.asset(
+                        'assets/svg/bell.svg',
+                        colorFilter: ColorFilter.mode(
+                            home != null && home == true
+                                ? ColorSettings.blanco
+                                : ColorSettings.negro2,
+                            BlendMode.srcIn),
+                      ),
+                      Positioned(
+                          left: 18,
+                          child: CircleAvatar(
+                            backgroundColor: ColorSettings.terciario,
+                            radius: MediaQuery.of(context).size.height * 0.009,
+                          ))
+                    ],
+                  ),
                 ),
               )),
         ],

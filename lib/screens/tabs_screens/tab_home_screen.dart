@@ -18,18 +18,45 @@ class TabHomecreen extends StatelessWidget {
                 fit: BoxFit.contain,
               )),
           SafeArea(
-              child: Column(
-            children: [
-              const CustomAppBar(
-                home: true,
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 24),
-                child: Column(
-                  children: const [],
+              child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 22),
+            child: Column(
+              children: [
+                const CustomAppBar(
+                  home: true,
                 ),
-              )
-            ],
+                const Gap(18),
+                Row(
+                  children: [
+                    Expanded(
+                        child: Text(
+                      'Bienvenido',
+                      style: Theme.of(context).textTheme.titleLarge,
+                    ))
+                  ],
+                ),
+                const Gap(25),
+                Row(
+                  children: const [
+                    Expanded(
+                      child: BotonTabHome(),
+                    ),
+                    Gap(15),
+                    Expanded(child: BotonTabHome())
+                  ],
+                ),
+                const Gap(22),
+                Row(
+                  children: const [
+                    Expanded(
+                      child: BotonTabHome(),
+                    ),
+                    Gap(15),
+                    Expanded(child: BotonTabHome())
+                  ],
+                ),
+              ],
+            ),
           ))
         ],
       ),
