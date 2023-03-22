@@ -23,11 +23,7 @@ class TabScreen extends StatelessWidget {
         physics: const NeverScrollableScrollPhysics(),
         children: [
           const TabHomecreen(),
-          Scaffold(
-            body: SafeArea(
-              child: Column(children: const [CustomAppBar()]),
-            ),
-          ),
+          TabManguerasScreen(),
           Scaffold(
             body: Container(
               width: double.infinity,

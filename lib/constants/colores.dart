@@ -21,6 +21,8 @@ class ColorSettings {
   static const Color textHint = Color(0xffB0BBC5);
   static const Color textButton = Color(0xff0284C7);
   static const Color textoHuella = Color(0xff85909A);
+  static const Color smallText = Color(0xff8B96A0);
+  static const Color titleMedium = Color(0xff075985);
 
   static const Color sombraTab = Color.fromARGB(25, 34, 101, 135);
   static const Color sombraTab2 = Color.fromARGB(4, 30, 82, 135);

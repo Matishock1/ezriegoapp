@@ -16,7 +16,8 @@ class AppTheme {
         displayMedium: GoogleFonts.nunito(
             fontSize: 18,
             letterSpacing: 0,
-            color: ColorSettings.negro,
+            height: 1.2,
+            color: ColorSettings.negro2,
             fontWeight: FontWeight.bold),
         displaySmall: GoogleFonts.nunito(
             fontSize: 15,
@@ -38,15 +39,17 @@ class AppTheme {
             height: 1.16,
             color: ColorSettings.blanco),
         titleMedium: GoogleFonts.nunito(
-            fontSize: 15,
-            fontWeight: FontWeight.w500,
+            fontSize: 28,
+            fontWeight: FontWeight.w800,
             letterSpacing: 0,
-            color: ColorSettings.negro),
-        // titleSmall: GoogleFonts.nunito(
-        //     fontSize: 9,
-        //     fontWeight: FontWeight.w500,
-        //     letterSpacing: 0.3,
-        //     color: ColorSettings.textoSubtitulo),
+            height: 1.16,
+            color: ColorSettings.titleMedium),
+        titleSmall: GoogleFonts.nunito(
+            fontSize: 18,
+            letterSpacing: 0,
+            height: 1.2,
+            color: ColorSettings.negro2,
+            fontWeight: FontWeight.w300),
         bodyLarge: GoogleFonts.nunito(
           fontSize: 16,
           fontWeight: FontWeight.w400,
@@ -70,9 +73,9 @@ class AppTheme {
             color: Colors.black),
         labelSmall: GoogleFonts.nunito(
             fontSize: 14,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w300,
             letterSpacing: 0,
-            color: ColorSettings.negro),
+            color: ColorSettings.smallText),
         // bottomNavigationBarTheme: BottomNavigationBarThemeData(
         //     backgroundColor: ColoresPediatria.botoonNavigator),
         // colorScheme: ThemeData.light().colorScheme.copyWith(

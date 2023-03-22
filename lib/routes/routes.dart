@@ -16,6 +16,10 @@ class AppRoutes {
     GetPage(
         name: TabScreen.ruta,
         page: () => TabScreen(),
+        transition: Transition.cupertino),
+    GetPage(
+        name: EstadoSueloScreen.ruta,
+        page: () => EstadoSueloScreen(),
         transition: Transition.cupertino)
   ];
 }
