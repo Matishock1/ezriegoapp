@@ -54,6 +54,7 @@ class AppTheme {
           fontSize: 16,
           fontWeight: FontWeight.w400,
           letterSpacing: 0,
+          height: 1.16,
           color: ColorSettings.textHint,
         ),
         bodyMedium: GoogleFonts.nunito(

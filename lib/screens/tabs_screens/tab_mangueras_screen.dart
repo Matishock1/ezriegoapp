@@ -3,6 +3,7 @@ import 'package:ezriegoapp/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 // ignore: must_be_immutable
 class TabManguerasScreen extends StatelessWidget {
@@ -66,11 +67,16 @@ class TabManguerasScreen extends StatelessWidget {
                       ),
                       title: Text(
                         'Llave 1',
-                        style: Theme.of(context).textTheme.bodySmall,
+                        style: Theme.of(context)
+                            .textTheme
+                            .displayMedium!
+                            .copyWith(
+                                fontWeight: FontWeight.w500,
+                                fontFamily: GoogleFonts.nunito().fontFamily),
                       ),
                       subtitle: Text(
                         'Hace 5 min',
-                        style: Theme.of(context).textTheme.bodySmall,
+                        style: Theme.of(context).textTheme.bodyLarge,
                       ),
                       trailing: Obx(
                         () => Switch(
