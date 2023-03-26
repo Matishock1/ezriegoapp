@@ -5,5 +5,6 @@ class ControllerBinding implements Bindings {
   @override
   void dependencies() {
     Get.put(TabsController(), permanent: true);
+    Get.put(ManguerasController(), permanent: true);
   }
 }

@@ -1,15 +1,14 @@
-import 'package:ezriegoapp/constants/colores.dart';
+import 'package:ezriegoapp/controllers/controllers.dart';
 import 'package:ezriegoapp/widgets/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
+
+import '../../models/models.dart';
 
 // ignore: must_be_immutable
 class TabManguerasScreen extends StatelessWidget {
   TabManguerasScreen({super.key});
-  RxBool xdd = true.obs;
-
+  final ManguerasController _controller = Get.find<ManguerasController>();
   @override
   Widget build(BuildContext context) {
     return FondoPantalla(
@@ -39,60 +38,25 @@ class TabManguerasScreen extends StatelessWidget {
                 ],
               ),
               const Gap(29),
-              Material(
-                child: InkWell(
-                  child: Ink(
-                    decoration: const BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                            color: ColorSettings.sombraTab2,
-                            offset: Offset(0, 3),
-                            spreadRadius: 1,
-                            blurRadius: 19)
-                      ],
-                    ),
-                    child: ListTile(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15)),
-                      tileColor: ColorSettings.blanco,
-                      minVerticalPadding: 10,
-                      dense: true,
-                      visualDensity: const VisualDensity(vertical: 2),
-                      contentPadding: const EdgeInsets.symmetric(
-                        horizontal: 10,
+              Expanded(
+                child: GetBuilder<ManguerasController>(builder: (controller) {
+                  return ListView(
+                    scrollDirection: Axis.vertical,
+                    children: [
+                      ListView.builder(
+                        shrinkWrap: true,
+                        scrollDirection: Axis.vertical,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: controller.listaMangueras.length,
+                        itemBuilder: (context, index) {
+                          Manguera manguera = controller.listaMangueras[index];
+
+                          return SwitchMangueras(manguera: manguera);
+                        },
                       ),
-                      leading: AspectRatio(
-                        aspectRatio: 1,
-                        child: SvgPicture.asset('assets/svg/mangueras.svg'),
-                      ),
-                      title: Text(
-                        'Llave 1',
-                        style: Theme.of(context)
-                            .textTheme
-                            .displayMedium!
-                            .copyWith(
-                                fontWeight: FontWeight.w500,
-                                fontFamily: GoogleFonts.nunito().fontFamily),
-                      ),
-                      subtitle: Text(
-                        'Hace 5 min',
-                        style: Theme.of(context).textTheme.bodyLarge,
-                      ),
-                      trailing: Obx(
-                        () => Switch(
-                          activeColor: ColorSettings.primario,
-                          onChanged: (value) {
-                            xdd.value = !xdd.value;
-                          },
-                          value: xdd.value,
-                        ),
-                      ),
-                      onTap: () {
-                        xdd.value = !xdd.value;
-                      },
-                    ),
-                  ),
-                ),
+                    ],
+                  );
+                }),
               ),
             ])),
       ),
