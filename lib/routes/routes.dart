@@ -19,7 +19,11 @@ class AppRoutes {
         transition: Transition.cupertino),
     GetPage(
         name: EstadoSueloScreen.ruta,
-        page: () => EstadoSueloScreen(),
+        page: () => const EstadoSueloScreen(),
+        transition: Transition.cupertino),
+    GetPage(
+        name: DetalleReporteScreen.ruta,
+        page: () => const DetalleReporteScreen(),
         transition: Transition.cupertino)
   ];
 }

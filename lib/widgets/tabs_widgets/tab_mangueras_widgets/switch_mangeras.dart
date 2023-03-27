@@ -41,10 +41,7 @@ class SwitchMangueras extends StatelessWidget {
                 contentPadding: const EdgeInsets.symmetric(
                   horizontal: 10,
                 ),
-                leading: AspectRatio(
-                  aspectRatio: 1,
-                  child: SvgPicture.asset('assets/svg/mangueras.svg'),
-                ),
+                leading: SvgPicture.asset('assets/svg/mangueras.svg'),
                 title: Text(
                   manguera.nombre,
                   style: Theme.of(context).textTheme.displayMedium!.copyWith(
@@ -54,7 +51,8 @@ class SwitchMangueras extends StatelessWidget {
                 subtitle: Obx(
                   () => Text(
                     manguera.activo,
-                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                    style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                        fontSize: 14,
                         color: manguera.switchValue.value
                             ? ColorSettings.primario
                             : Theme.of(context).textTheme.bodyLarge!.color),

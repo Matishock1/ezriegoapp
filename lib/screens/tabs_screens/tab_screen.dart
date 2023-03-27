@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:ezriegoapp/constants/colores.dart';
 import 'package:ezriegoapp/screens/screens.dart';
+import 'package:ezriegoapp/screens/tabs_screens/tab_reportes_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -22,7 +23,7 @@ class TabScreen extends StatelessWidget {
         controller: tabController.pageController,
         physics: const NeverScrollableScrollPhysics(),
         children: [
-          const TabHomecreen(),
+          TabHomecreen(),
           TabManguerasScreen(),
           Scaffold(
             body: Container(
@@ -30,7 +31,8 @@ class TabScreen extends StatelessWidget {
               height: double.infinity,
               color: Colors.blue,
             ),
-          )
+          ),
+          const TabReportesScreen()
         ],
       ),
       bottomNavigationBar: const BottonNavigation(),

@@ -1,4 +1,5 @@
 export 'package:ezriegoapp/widgets/apbbar.dart';
+export 'package:ezriegoapp/widgets/estado_suelo/tile_suelo_widget.dart';
 export 'package:ezriegoapp/widgets/inicio/login_text_input.dart';
 export 'package:ezriegoapp/widgets/inicio/splash_animation.dart';
 export 'package:ezriegoapp/widgets/tabs_widgets/bottom_navigator.dart';

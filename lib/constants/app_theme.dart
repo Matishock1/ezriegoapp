@@ -16,7 +16,7 @@ class AppTheme {
         displayMedium: GoogleFonts.nunito(
             fontSize: 18,
             letterSpacing: 0,
-            height: 1.2,
+            height: 1.1,
             color: ColorSettings.negro2,
             fontWeight: FontWeight.bold),
         displaySmall: GoogleFonts.nunito(
@@ -68,10 +68,11 @@ class AppTheme {
             letterSpacing: 0.47,
             color: ColorSettings.blanco),
         bodySmall: GoogleFonts.nunito(
-            fontSize: 12,
-            fontWeight: FontWeight.w400,
-            letterSpacing: 0.0,
-            color: Colors.black),
+          fontSize: 12,
+          fontWeight: FontWeight.w400,
+          letterSpacing: 0.0,
+          color: ColorSettings.textoHuella,
+        ),
         labelSmall: GoogleFonts.nunito(
             fontSize: 14,
             fontWeight: FontWeight.w300,

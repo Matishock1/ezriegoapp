@@ -1,3 +1,4 @@
+export 'package:ezriegoapp/screens/detalle_reporte_screen.dart';
 export 'package:ezriegoapp/screens/estado_suelo_screen.dart';
 export 'package:ezriegoapp/screens/inicio/intro_screen.dart';
 export 'package:ezriegoapp/screens/inicio/splash_screen.dart';

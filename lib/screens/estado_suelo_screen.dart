@@ -1,13 +1,13 @@
-import 'package:ezriegoapp/constants/colores.dart';
 import 'package:ezriegoapp/widgets/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
+import '../controllers/controllers.dart';
+import '../models/models.dart';
+
 class EstadoSueloScreen extends StatelessWidget {
-  EstadoSueloScreen({super.key});
+  const EstadoSueloScreen({super.key});
   static const String ruta = '/estado_suelo';
-  RxBool xdd = true.obs;
 
   @override
   Widget build(BuildContext context) {
@@ -38,57 +38,25 @@ class EstadoSueloScreen extends StatelessWidget {
                 ],
               ),
               const Gap(29),
-              Material(
-                child: InkWell(
-                  child: Ink(
-                    decoration: const BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                            color: ColorSettings.sombraTab2,
-                            offset: Offset(0, 3),
-                            spreadRadius: 1,
-                            blurRadius: 19)
-                      ],
-                    ),
-                    child: ListTile(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15)),
-                      tileColor: ColorSettings.blanco,
-                      minVerticalPadding: 10,
-                      dense: true,
-                      visualDensity: const VisualDensity(vertical: 2),
-                      contentPadding: const EdgeInsets.symmetric(
-                        horizontal: 10,
+              Expanded(
+                child: GetBuilder<SuelosController>(builder: (controller) {
+                  return ListView(
+                    scrollDirection: Axis.vertical,
+                    children: [
+                      ListView.builder(
+                        shrinkWrap: true,
+                        scrollDirection: Axis.vertical,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: controller.listaSuelos.length,
+                        itemBuilder: (context, index) {
+                          Suelo suelo = controller.listaSuelos[index];
+
+                          return TileSuelo(suelo: suelo);
+                        },
                       ),
-                      leading: AspectRatio(
-                        aspectRatio: 1,
-                        child: SvgPicture.asset(
-                          'assets/svg/suelo.svg',
-                        ),
-                      ),
-                      title: Text(
-                        'Sector 1',
-                        style: Theme.of(context).textTheme.bodySmall,
-                      ),
-                      subtitle: Text(
-                        '20% Humedad 15° C.',
-                        style: Theme.of(context).textTheme.bodySmall,
-                      ),
-                      trailing: Obx(
-                        () => Switch(
-                          activeColor: ColorSettings.primario,
-                          onChanged: (value) {
-                            xdd.value = !xdd.value;
-                          },
-                          value: xdd.value,
-                        ),
-                      ),
-                      onTap: () {
-                        xdd.value = !xdd.value;
-                      },
-                    ),
-                  ),
-                ),
+                    ],
+                  );
+                }),
               ),
             ])),
       ),

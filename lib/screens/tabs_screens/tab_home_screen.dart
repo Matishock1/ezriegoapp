@@ -1,3 +1,4 @@
+import 'package:ezriegoapp/controllers/controllers.dart';
 import 'package:ezriegoapp/screens/estado_suelo_screen.dart';
 import 'package:ezriegoapp/widgets/widgets.dart';
 import 'package:flutter/material.dart';
@@ -5,7 +6,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 class TabHomecreen extends StatelessWidget {
-  const TabHomecreen({super.key});
+  TabHomecreen({super.key});
+
+  final TabsController _tabsController = Get.find<TabsController>();
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +52,9 @@ class TabHomecreen extends StatelessWidget {
                         cantidad1: '4',
                         titulo2: 'Activas',
                         cantidad2: '1',
-                        funcion: () {},
+                        funcion: () {
+                          _tabsController.currentPage = 1;
+                        },
                       ),
                     ),
                     const Gap(15),
