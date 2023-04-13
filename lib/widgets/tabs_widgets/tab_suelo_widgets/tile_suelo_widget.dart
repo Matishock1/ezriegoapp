@@ -6,7 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../models/models.dart';
+import '../../../models/models.dart';
 
 class TileSuelo extends StatelessWidget {
   const TileSuelo({super.key, this.suelo, this.reporte});

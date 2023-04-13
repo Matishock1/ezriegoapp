@@ -3,9 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
+import '../controllers/controllers.dart';
+
 class CustomAppBar extends StatelessWidget {
   final bool? home;
-  const CustomAppBar({super.key, this.home});
+
+  CustomAppBar({super.key, this.home});
+  final TabsController _tabsController = Get.find<TabsController>();
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +22,7 @@ class CustomAppBar extends StatelessWidget {
             flex: 3,
             child: GestureDetector(
               onTap: () {
-                Get.back(canPop: true);
+                _tabsController.currentPage = 0;
               },
               child: SvgPicture.asset(
                 home != null && home == true
@@ -58,6 +62,24 @@ class CustomAppBar extends StatelessWidget {
                     ],
                   ),
                 ),
+              )),
+          Expanded(
+              flex: 2,
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width * 0.10,
+                child: Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: IconButton(
+                      icon: const Icon(Icons.menu_rounded),
+                      iconSize: MediaQuery.of(context).size.width * 0.08,
+                      color: home != null && home == true
+                          ? ColorSettings.blanco
+                          : ColorSettings.negro2,
+                      onPressed: () {
+                        final ScaffoldState scafold = Scaffold.of(context);
+                        _tabsController.openDrawer(scafold);
+                      },
+                    )),
               )),
         ],
       ),

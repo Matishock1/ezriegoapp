@@ -9,6 +9,8 @@ class TabsController extends GetxController {
   int get currentPage => _currentPage.value;
   bool get estadoWidget => _widgetLista.value;
 
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+
   set textoBusqueda(String value) {
     _textoBusqueda.value = value;
     update();
@@ -38,4 +40,8 @@ class TabsController extends GetxController {
   }
 
   PageController get pageController => _pageController;
+
+  void openDrawer(ScaffoldState scaffoldState) {
+    scaffoldKey.currentState!.openEndDrawer();
+  }
 }

@@ -18,6 +18,8 @@ class TabScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: tabController.scaffoldKey,
+      endDrawer: CustomDrawer(),
       extendBody: true,
       body: PageView(
         controller: tabController.pageController,
@@ -25,14 +27,20 @@ class TabScreen extends StatelessWidget {
         children: [
           TabHomecreen(),
           TabManguerasScreen(),
-          Scaffold(
-            body: Container(
-              width: double.infinity,
-              height: double.infinity,
-              color: Colors.blue,
+          FondoPantalla(
+            child: Column(
+              children: [
+                CustomAppBar(),
+                Container(
+                  width: double.infinity,
+                  height: 500,
+                  color: Colors.blue,
+                ),
+              ],
             ),
           ),
-          const TabReportesScreen()
+          const EstadoSueloScreen(),
+          const TabReportesScreen(),
         ],
       ),
       bottomNavigationBar: const BottonNavigation(),
@@ -85,14 +93,14 @@ class BottonNavigation extends StatelessWidget {
                 seleccionado: controlador.currentPage == 2,
               ),
               BotonNavigator(
-                icono: 'assets/svg/graph_down.svg',
+                icono: 'assets/svg/terreno.svg',
                 onTap: () {
                   controlador.currentPage = 3;
                 },
                 seleccionado: controlador.currentPage == 3,
               ),
               BotonNavigator(
-                icono: 'assets/svg/person.svg',
+                icono: 'assets/svg/graph_down.svg',
                 onTap: () {
                   controlador.currentPage = 4;
                 },

@@ -16,7 +16,7 @@ class TabManguerasScreen extends StatelessWidget {
         child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 22),
             child: Column(children: [
-              const CustomAppBar(),
+              CustomAppBar(),
               const Gap(30),
               Row(
                 children: [

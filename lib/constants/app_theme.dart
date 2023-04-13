@@ -28,11 +28,12 @@ class AppTheme {
             fontSize: 14,
             fontWeight: FontWeight.w400,
             color: ColorSettings.textButton),
-        headlineSmall: GoogleFonts.nunito(
-          fontSize: 28,
-          letterSpacing: 0.15,
-          fontWeight: FontWeight.bold,
-        ),
+        headlineSmall: GoogleFonts.roboto(
+            fontSize: 12,
+            height: 1.16,
+            letterSpacing: 0,
+            fontWeight: FontWeight.w400,
+            color: ColorSettings.textoHuella),
         titleLarge: GoogleFonts.nunito(
             fontSize: 36,
             fontWeight: FontWeight.w800,

@@ -2,8 +2,8 @@ import 'package:ezriegoapp/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../controllers/controllers.dart';
-import '../models/models.dart';
+import '../../controllers/controllers.dart';
+import '../../models/models.dart';
 
 class EstadoSueloScreen extends StatelessWidget {
   const EstadoSueloScreen({super.key});
@@ -16,7 +16,7 @@ class EstadoSueloScreen extends StatelessWidget {
         child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 22),
             child: Column(children: [
-              const CustomAppBar(),
+              CustomAppBar(),
               const Gap(30),
               Row(
                 children: [

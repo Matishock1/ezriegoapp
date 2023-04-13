@@ -1,5 +1,4 @@
 import 'package:ezriegoapp/controllers/controllers.dart';
-import 'package:ezriegoapp/screens/estado_suelo_screen.dart';
 import 'package:ezriegoapp/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -27,7 +26,7 @@ class TabHomecreen extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 22),
             child: Column(
               children: [
-                const CustomAppBar(
+                CustomAppBar(
                   home: true,
                 ),
                 const Gap(18),
@@ -68,7 +67,7 @@ class TabHomecreen extends StatelessWidget {
                         titulo2: 'T° Promedio',
                         cantidad2: '20°C',
                         funcion: () {
-                          Get.toNamed(EstadoSueloScreen.ruta);
+                          _tabsController.currentPage = 3;
                         },
                       ),
                     )
@@ -92,7 +91,9 @@ class TabHomecreen extends StatelessWidget {
                       tituloBoton: 'Reportes',
                       large: true,
                       descripcion: 'Revisa los reportes de tus cultivos',
-                      funcion: () {},
+                      funcion: () {
+                        _tabsController.currentPage = 4;
+                      },
                     ))
                   ],
                 ),
