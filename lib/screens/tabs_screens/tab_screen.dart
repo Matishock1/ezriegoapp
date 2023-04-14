@@ -27,18 +27,7 @@ class TabScreen extends StatelessWidget {
         children: [
           TabHomecreen(),
           TabManguerasScreen(),
-          FondoPantalla(
-            child: Column(
-              children: [
-                CustomAppBar(),
-                Container(
-                  width: double.infinity,
-                  height: 500,
-                  color: Colors.blue,
-                ),
-              ],
-            ),
-          ),
+          TabProgramar(),
           const EstadoSueloScreen(),
           const TabReportesScreen(),
         ],

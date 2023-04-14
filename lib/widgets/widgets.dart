@@ -6,5 +6,7 @@ export 'package:ezriegoapp/widgets/tabs_widgets/custom_drawer.dart';
 export 'package:ezriegoapp/widgets/tabs_widgets/fondo_pantalla.dart';
 export 'package:ezriegoapp/widgets/tabs_widgets/tab_home_widgets/boton_tab_home.dart';
 export 'package:ezriegoapp/widgets/tabs_widgets/tab_mangueras_widgets/switch_mangeras.dart';
+export 'package:ezriegoapp/widgets/tabs_widgets/tab_programar_widgets/boton_programar.dart';
+export 'package:ezriegoapp/widgets/tabs_widgets/tab_programar_widgets/tile_programar.dart';
 export 'package:ezriegoapp/widgets/tabs_widgets/tab_suelo_widgets/tile_suelo_widget.dart';
 export 'package:gap/gap.dart';
