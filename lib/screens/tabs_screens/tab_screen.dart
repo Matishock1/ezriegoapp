@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:ezriegoapp/constants/colores.dart';
 import 'package:ezriegoapp/screens/screens.dart';
 import 'package:ezriegoapp/screens/tabs_screens/tab_reportes_screen.dart';
@@ -44,7 +42,7 @@ class BottonNavigation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: Platform.isAndroid ? 85 : 85 + 15,
+        // height: Platform.isAndroid ? 85 : 85 + 15,
         decoration: const BoxDecoration(
           color: ColorSettings.blanco,
           boxShadow: [

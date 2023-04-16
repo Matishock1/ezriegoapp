@@ -82,7 +82,9 @@ class TabHomecreen extends StatelessWidget {
                       tituloBoton: 'Programar',
                       large: true,
                       descripcion: 'Programa el cuidado de tus cultivos',
-                      funcion: () {},
+                      funcion: () {
+                        _tabsController.currentPage = 2;
+                      },
                     )),
                     const Gap(15),
                     Expanded(

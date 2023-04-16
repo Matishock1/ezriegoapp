@@ -102,10 +102,46 @@ class TabProgramar extends StatelessWidget {
             ),
             const Gap(20),
             Expanded(
-                child: Column(
-              children: const [
-                TileProgramar(),
-              ],
+                child: Obx(
+              () => _selectScreen[0]
+                  ? Column(
+                      children: const [
+                        TileProgramar(
+                          titulo: 'Sector 1',
+                          subtitulo: 'Plantilla: Nombre plantilla 1',
+                          icono: 'assets/svg/suelo.svg',
+                          descripcion: '1hr',
+                          activo: true,
+                        ),
+                        TileProgramar(
+                          titulo: 'Manguera 1',
+                          subtitulo: 'Plantilla: Nombre plantilla 1',
+                          icono: 'assets/svg/mangueras.svg',
+                          descripcion: '1hr',
+                          activo: true,
+                        ),
+                      ],
+                    )
+                  : Column(
+                      children: const [
+                        TileProgramar(
+                          titulo: 'Sector 1',
+                          subtitulo: 'Plantilla: Nombre plantilla 1',
+                          icono: 'assets/svg/suelo.svg',
+                          descripcion: '15:00 - 16:00 hrs',
+                          activo: false,
+                          fecha: '11 de abril, 2023',
+                        ),
+                        TileProgramar(
+                          titulo: 'Manguera 1',
+                          subtitulo: 'Plantilla: Nombre plantilla 1',
+                          icono: 'assets/svg/mangueras.svg',
+                          descripcion: '22:00 - 00:00 hrs',
+                          activo: false,
+                          fecha: '11 de abril, 2023',
+                        ),
+                      ],
+                    ),
             ))
           ],
         ),
