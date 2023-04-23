@@ -24,6 +24,18 @@ class AppRoutes {
     GetPage(
         name: DetalleReporteScreen.ruta,
         page: () => const DetalleReporteScreen(),
+        transition: Transition.cupertino),
+    GetPage(
+        name: ProgramarSectoresScreen.ruta,
+        page: () => const ProgramarSectoresScreen(),
+        transition: Transition.cupertino),
+    GetPage(
+        name: NotificacionesScreen.ruta,
+        page: () => const NotificacionesScreen(),
+        transition: Transition.cupertino),
+    GetPage(
+        name: HistorialScreen.ruta,
+        page: () => const HistorialScreen(),
         transition: Transition.cupertino)
   ];
 }

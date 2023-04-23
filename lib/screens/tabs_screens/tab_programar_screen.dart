@@ -1,4 +1,6 @@
 import 'package:ezriegoapp/constants/colores.dart';
+import 'package:ezriegoapp/controllers/controllers.dart';
+import 'package:ezriegoapp/screens/screens.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -8,6 +10,7 @@ class TabProgramar extends StatelessWidget {
   TabProgramar({super.key});
   static String ruta = '/tab_programar';
   final RxList<bool> _selectScreen = RxList<bool>([true, false]);
+  final TabsController tabsController = Get.find<TabsController>();
 
   @override
   Widget build(BuildContext context) {
@@ -31,20 +34,26 @@ class TabProgramar extends StatelessWidget {
             ),
             const Gap(19),
             Row(
-              children: const [
+              children: [
                 Expanded(
                     child: BotonProgramar(
                   texto: 'Mangueras',
                   icono: 'assets/svg/programar_manguera.svg',
+                  funcion: () {
+                    tabsController.currentPage = 0;
+                  },
                 )),
-                Gap(10),
+                const Gap(10),
                 Expanded(
                     child: BotonProgramar(
                   texto: 'Sectores',
                   icono: 'assets/svg/programar_suelo.svg',
+                  funcion: () {
+                    Get.toNamed(ProgramarSectoresScreen.ruta);
+                  },
                 )),
-                Gap(10),
-                Expanded(
+                const Gap(10),
+                const Expanded(
                     child: BotonProgramar(
                   texto: 'Plantillas',
                   icono: 'assets/svg/programar_carpeta.svg',

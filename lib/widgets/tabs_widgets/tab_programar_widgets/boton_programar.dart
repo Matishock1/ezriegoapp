@@ -6,10 +6,12 @@ import 'package:flutter_svg/flutter_svg.dart';
 class BotonProgramar extends StatelessWidget {
   final String icono;
   final String texto;
+  final void Function()? funcion;
   const BotonProgramar({
     super.key,
     required this.icono,
     required this.texto,
+    this.funcion,
   });
 
   @override
@@ -30,7 +32,7 @@ class BotonProgramar extends StatelessWidget {
         child: Material(
           color: Colors.transparent,
           child: InkWell(
-            onTap: () {},
+            onTap: funcion,
             borderRadius: BorderRadius.circular(15),
             child: Ink(
               child: Column(

@@ -1,4 +1,5 @@
 import 'package:ezriegoapp/constants/colores.dart';
+import 'package:ezriegoapp/screens/perfil/historial_screen.dart';
 import 'package:ezriegoapp/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -37,9 +38,12 @@ class CustomDrawer extends StatelessWidget {
                       texto: 'Mis Datos',
                       icono: 'person',
                     ),
-                    const OpcionDrawer(
+                    OpcionDrawer(
                       texto: 'Historial de actividad',
                       icono: 'clockHistory',
+                      funcion: () {
+                        Get.toNamed(HistorialScreen.ruta);
+                      },
                     ),
                     const OpcionDrawer(
                         texto: 'Ayuda y soporte', icono: 'support'),
@@ -107,9 +111,11 @@ class OpcionDrawer extends StatelessWidget {
     super.key,
     required this.texto,
     required this.icono,
+    this.funcion,
   });
   final String texto;
   final String icono;
+  final void Function()? funcion;
 
   @override
   Widget build(BuildContext context) {
@@ -139,7 +145,7 @@ class OpcionDrawer extends StatelessWidget {
               ))
         ],
       ),
-      onTap: () {},
+      onTap: funcion,
     );
   }
 }
