@@ -40,7 +40,7 @@ class TabProgramar extends StatelessWidget {
                   texto: 'Mangueras',
                   icono: 'assets/svg/programar_manguera.svg',
                   funcion: () {
-                    tabsController.currentPage = 0;
+                    tabsController.currentPage = 1;
                   },
                 )),
                 const Gap(10),

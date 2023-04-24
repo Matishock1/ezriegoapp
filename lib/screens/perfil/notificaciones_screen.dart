@@ -1,5 +1,7 @@
+import 'package:ezriegoapp/controllers/notificaciones_controller.dart';
 import 'package:ezriegoapp/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class NotificacionesScreen extends StatelessWidget {
   const NotificacionesScreen({super.key});
@@ -25,6 +27,27 @@ class NotificacionesScreen extends StatelessWidget {
                 ),
               ],
             ),
+            const Gap(25),
+            GetBuilder<NotificacionesController>(builder: (controller) {
+              return ListView(
+                shrinkWrap: true,
+                scrollDirection: Axis.vertical,
+                physics: const ClampingScrollPhysics(),
+                children: [
+                  ListView.builder(
+                    shrinkWrap: true,
+                    scrollDirection: Axis.vertical,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: controller.listaNotificaciones.length,
+                    itemBuilder: (context, index) {
+                      return RowNotificacion(
+                        notificacion: controller.listaNotificaciones[index],
+                      );
+                    },
+                  )
+                ],
+              );
+            }),
           ],
         ),
       ),

@@ -54,30 +54,28 @@ class HistorialScreen extends StatelessWidget {
                       height: 10,
                     ),
                     const Gap(12),
+                    GetBuilder<HistorialController>(builder: (controller) {
+                      return ListView(
+                        shrinkWrap: true,
+                        scrollDirection: Axis.vertical,
+                        physics: const ClampingScrollPhysics(),
+                        children: [
+                          ListView.builder(
+                            shrinkWrap: true,
+                            scrollDirection: Axis.vertical,
+                            physics: const NeverScrollableScrollPhysics(),
+                            itemCount: 2,
+                            itemBuilder: (context, index) {
+                              return RegistroHistorial(
+                                historial: controller.listaHistorial[index],
+                              );
+                            },
+                          ),
+                        ],
+                      );
+                    }),
                   ],
                 )),
-            SizedBox(
-              height: 200,
-              child: GetBuilder<HistorialController>(builder: (controller) {
-                return ListView(
-                  shrinkWrap: true,
-                  scrollDirection: Axis.vertical,
-                  children: [
-                    ListView.builder(
-                      shrinkWrap: true,
-                      scrollDirection: Axis.vertical,
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemCount: 2,
-                      itemBuilder: (context, index) {
-                        return RegistroHistorial(
-                          historial: controller.listaHistorial[index],
-                        );
-                      },
-                    ),
-                  ],
-                );
-              }),
-            ),
             Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: Column(
@@ -96,30 +94,28 @@ class HistorialScreen extends StatelessWidget {
                       height: 10,
                     ),
                     const Gap(12),
+                    GetBuilder<HistorialController>(builder: (controller) {
+                      return ListView(
+                        shrinkWrap: true,
+                        scrollDirection: Axis.vertical,
+                        physics: const ClampingScrollPhysics(),
+                        children: [
+                          ListView.builder(
+                            shrinkWrap: true,
+                            scrollDirection: Axis.vertical,
+                            physics: const NeverScrollableScrollPhysics(),
+                            itemCount: 2,
+                            itemBuilder: (context, index) {
+                              return RegistroHistorial(
+                                historial: controller.listaHistorial[index + 2],
+                              );
+                            },
+                          ),
+                        ],
+                      );
+                    }),
                   ],
                 )),
-            SizedBox(
-              height: 200,
-              child: GetBuilder<HistorialController>(builder: (controller) {
-                return ListView(
-                  shrinkWrap: true,
-                  scrollDirection: Axis.vertical,
-                  children: [
-                    ListView.builder(
-                      shrinkWrap: true,
-                      scrollDirection: Axis.vertical,
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemCount: 2,
-                      itemBuilder: (context, index) {
-                        return RegistroHistorial(
-                          historial: controller.listaHistorial[index + 2],
-                        );
-                      },
-                    ),
-                  ],
-                );
-              }),
-            ),
           ],
         ),
       ),

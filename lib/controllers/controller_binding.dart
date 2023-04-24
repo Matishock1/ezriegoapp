@@ -8,5 +8,6 @@ class ControllerBinding implements Bindings {
     Get.put(ManguerasController(), permanent: true);
     Get.put(SuelosController(), permanent: true);
     Get.put(HistorialController(), permanent: true);
+    Get.put(NotificacionesController(), permanent: true);
   }
 }

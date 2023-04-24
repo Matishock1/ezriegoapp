@@ -28,5 +28,11 @@ class HistorialController extends GetxController {
         estado: 'Activada',
         hora: '19:00',
         userLog: 'Por Usuario desde Menú'),
+    Historial(
+        id: 5,
+        titulo: 'Activar Llave 1',
+        estado: 'Activada',
+        hora: '19:00',
+        userLog: 'Por Usuario desde Menú'),
   ];
 }
