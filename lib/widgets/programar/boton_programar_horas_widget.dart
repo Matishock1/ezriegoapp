@@ -16,7 +16,9 @@ class BotonProgramarHoras extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 40,
+      // height: 40,
+      height: MediaQuery.of(context).size.height * 0.045,
+
       width: double.infinity,
       decoration: BoxDecoration(
           color: isActive ? ColorSettings.secundario : ColorSettings.blanco,

@@ -35,7 +35,7 @@ class AppRoutes {
         transition: Transition.cupertino),
     GetPage(
         name: HistorialScreen.ruta,
-        page: () => const HistorialScreen(),
+        page: () => HistorialScreen(),
         transition: Transition.cupertino)
   ];
 }
