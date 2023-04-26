@@ -9,7 +9,6 @@ import '../../widgets/widgets.dart';
 class TabProgramar extends StatelessWidget {
   TabProgramar({super.key});
   static String ruta = '/tab_programar';
-  final RxList<bool> _selectScreen = RxList<bool>([true, false]);
   final TabsController tabsController = Get.find<TabsController>();
 
   @override
@@ -75,16 +74,19 @@ class TabProgramar extends StatelessWidget {
                               blurRadius: 19)
                         ],
                         borderRadius: BorderRadius.circular(15)),
-                    child: LayoutBuilder(
-                      builder: (context, constraints) {
-                        return Obx(
-                          () => ToggleButtons(
+                    child: GetBuilder<TabsController>(builder: (controller) {
+                      return LayoutBuilder(
+                        builder: (context, constraints) {
+                          return ToggleButtons(
                             constraints: BoxConstraints.expand(
                                 width: (constraints.maxWidth / 2) - 1.5),
-                            isSelected: _selectScreen,
+                            isSelected: controller.selectScreen,
                             onPressed: (int index) {
-                              for (int i = 0; i < _selectScreen.length; i++) {
-                                _selectScreen[i] = i == index;
+                              for (int i = 0;
+                                  i < controller.selectScreen.length;
+                                  i++) {
+                                controller.selectScreen[i] = i == index;
+                                controller.update();
                               }
                             },
                             renderBorder: false,
@@ -97,14 +99,11 @@ class TabProgramar extends StatelessWidget {
                                 .textTheme
                                 .bodySmall!
                                 .copyWith(fontSize: 16),
-                            children: const <Widget>[
-                              Text('Activos'),
-                              Text('Próximos')
-                            ],
-                          ),
-                        );
-                      },
-                    ),
+                            children: const [Text('Activos'), Text('Próximos')],
+                          );
+                        },
+                      );
+                    }),
                   ),
                 ),
               ],
@@ -112,7 +111,7 @@ class TabProgramar extends StatelessWidget {
             const Gap(20),
             Expanded(
                 child: Obx(
-              () => _selectScreen[0]
+              () => tabsController.selectScreen[0]
                   ? Column(
                       children: const [
                         TileProgramar(

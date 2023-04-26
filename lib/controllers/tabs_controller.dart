@@ -6,6 +6,8 @@ class TabsController extends GetxController {
   final RxBool _widgetLista = false.obs;
   final RxString _textoBusqueda = ''.obs;
   PageController _pageController = PageController(initialPage: 0);
+  final RxList<bool> selectScreen = RxList<bool>([true, false]);
+
   int get currentPage => _currentPage.value;
   bool get estadoWidget => _widgetLista.value;
 
