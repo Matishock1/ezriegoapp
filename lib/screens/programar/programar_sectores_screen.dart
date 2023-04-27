@@ -18,149 +18,146 @@ class ProgramarSectoresScreen extends StatelessWidget {
     final SuelosController controller = Get.find<SuelosController>();
 
     return FondoPantalla(
-      child: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 22),
-          child: Column(
-            children: [
-              CustomAppBar(),
-              const Gap(30),
-              Row(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 22),
+        child: ListView(
+          children: [
+            CustomAppBar(),
+            const Gap(30),
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    'Sectores',
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
+                ),
+              ],
+            ),
+            const Gap(19),
+            SectorInfo(
+              suelo: controller.listaSuelos[0],
+            ),
+            const Gap(10),
+            const Divider(
+              // thickness: 1,
+              color: ColorSettings.textoHuella,
+              endIndent: 10,
+              indent: 10,
+              height: 10,
+            ),
+            const Gap(15),
+            GetBuilder<SuelosController>(builder: (controller) {
+              return Column(
                 children: [
-                  Expanded(
-                    child: Text(
-                      'Sectores',
-                      style: Theme.of(context).textTheme.titleMedium,
-                    ),
+                  Row(
+                    children: [
+                      Expanded(
+                          flex: 4,
+                          child: BotonProgramarHoras(
+                            texto: '8 hrs',
+                            isActive: controller.botonSeleccionado == 0,
+                            funcion: () {
+                              controller.botonSeleccionado = 0;
+                            },
+                          )),
+                      const Gap(10),
+                      Expanded(
+                          flex: 4,
+                          child: BotonProgramarHoras(
+                            texto: '12 hrs',
+                            isActive: controller.botonSeleccionado == 1,
+                            funcion: () {
+                              controller.botonSeleccionado = 1;
+                            },
+                          )),
+                      const Gap(10),
+                      Expanded(
+                          flex: 4,
+                          child: BotonProgramarHoras(
+                            texto: '16 hrs',
+                            isActive: controller.botonSeleccionado == 2,
+                            funcion: () {
+                              controller.botonSeleccionado = 2;
+                            },
+                          )),
+                    ],
+                  ),
+                  const Gap(15),
+                  Row(
+                    children: [
+                      Expanded(
+                          child: Text(
+                        '  Avanzado',
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodySmall!
+                            .copyWith(fontSize: 18, height: 1.363),
+                      )),
+                      Expanded(
+                        child: Align(
+                          alignment: Alignment.centerRight,
+                          child: Switch(
+                              activeColor: ColorSettings.primario,
+                              onChanged: (value) {
+                                controller.avanzado = !controller.avanzado;
+                              },
+                              value: controller.avanzado),
+                        ),
+                      )
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                          child: Text(
+                        '  Duración',
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodySmall!
+                            .copyWith(fontSize: 18, height: 1.363),
+                      )),
+                      Expanded(
+                        child: Align(
+                          alignment: Alignment.centerRight,
+                          child: Switch(
+                              activeColor: ColorSettings.primario,
+                              onChanged: (value) {
+                                controller.duracion = !controller.duracion;
+                              },
+                              value: controller.duracion),
+                        ),
+                      )
+                    ],
                   ),
                 ],
-              ),
-              const Gap(19),
-              SectorInfo(
-                suelo: controller.listaSuelos[0],
-              ),
-              const Gap(10),
-              const Divider(
-                // thickness: 1,
-                color: ColorSettings.textoHuella,
-                endIndent: 10,
-                indent: 10,
-                height: 10,
-              ),
-              const Gap(15),
-              GetBuilder<SuelosController>(builder: (controller) {
-                return Column(
-                  children: [
-                    Row(
+              );
+            }),
+            Expanded(
+              child: Align(
+                alignment: Alignment.bottomCenter,
+                child: Padding(
+                    padding: const EdgeInsets.only(bottom: 100),
+                    child: Row(
                       children: [
                         Expanded(
-                            flex: 4,
-                            child: BotonProgramarHoras(
-                              texto: '8 hrs',
-                              isActive: controller.botonSeleccionado == 0,
-                              funcion: () {
-                                controller.botonSeleccionado = 0;
-                              },
-                            )),
-                        const Gap(10),
-                        Expanded(
-                            flex: 4,
-                            child: BotonProgramarHoras(
-                              texto: '12 hrs',
-                              isActive: controller.botonSeleccionado == 1,
-                              funcion: () {
-                                controller.botonSeleccionado = 1;
-                              },
-                            )),
-                        const Gap(10),
-                        Expanded(
-                            flex: 4,
-                            child: BotonProgramarHoras(
-                              texto: '16 hrs',
-                              isActive: controller.botonSeleccionado == 2,
-                              funcion: () {
-                                controller.botonSeleccionado = 2;
-                              },
-                            )),
-                      ],
-                    ),
-                    const Gap(15),
-                    Row(
-                      children: [
-                        Expanded(
-                            child: Text(
-                          '  Avanzado',
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodySmall!
-                              .copyWith(fontSize: 18, height: 1.363),
-                        )),
-                        Expanded(
-                          child: Align(
-                            alignment: Alignment.centerRight,
-                            child: Switch(
-                                activeColor: ColorSettings.primario,
-                                onChanged: (value) {
-                                  controller.avanzado = !controller.avanzado;
-                                },
-                                value: controller.avanzado),
-                          ),
-                        )
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Expanded(
-                            child: Text(
-                          '  Duración',
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodySmall!
-                              .copyWith(fontSize: 18, height: 1.363),
-                        )),
-                        Expanded(
-                          child: Align(
-                            alignment: Alignment.centerRight,
-                            child: Switch(
-                                activeColor: ColorSettings.primario,
-                                onChanged: (value) {
-                                  controller.duracion = !controller.duracion;
-                                },
-                                value: controller.duracion),
-                          ),
-                        )
-                      ],
-                    ),
-                  ],
-                );
-              }),
-              Expanded(
-                child: Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Padding(
-                      padding: const EdgeInsets.only(bottom: 100),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: ElevatedButton(
-                              onPressed: () {},
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: ColorSettings.primario,
-                                elevation: 0,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10)),
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 17),
-                              ),
-                              child: const Text('Programar'),
+                          child: ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: ColorSettings.primario,
+                              elevation: 0,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10)),
+                              padding: const EdgeInsets.symmetric(vertical: 17),
                             ),
+                            child: const Text('Programar'),
                           ),
-                        ],
-                      )),
-                ),
-              )
-            ],
-          ),
+                        ),
+                      ],
+                    )),
+              ),
+            )
+          ],
         ),
       ),
     );

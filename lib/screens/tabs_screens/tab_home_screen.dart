@@ -12,6 +12,7 @@ class TabHomecreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FondoPantalla(
+      notSafeArea: true,
       child: Stack(
         children: [
           Positioned(
@@ -24,7 +25,7 @@ class TabHomecreen extends StatelessWidget {
           SafeArea(
               child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 22),
-            child: Column(
+            child: ListView(
               children: [
                 CustomAppBar(
                   home: true,

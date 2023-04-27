@@ -2,9 +2,10 @@ import 'package:ezriegoapp/constants/colores.dart';
 import 'package:flutter/material.dart';
 
 class FondoPantalla extends StatelessWidget {
-  const FondoPantalla({super.key, required this.child});
+  const FondoPantalla({super.key, required this.child, this.notSafeArea});
 
   final Widget child;
+  final bool? notSafeArea;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +26,7 @@ class FondoPantalla extends StatelessWidget {
             0.9,
             1
           ])),
-      child: child,
+      child: notSafeArea != null ? child : SafeArea(child: child),
     ));
   }
 }
