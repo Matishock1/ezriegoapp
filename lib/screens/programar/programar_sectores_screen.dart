@@ -20,8 +20,8 @@ class ProgramarSectoresScreen extends StatelessWidget {
     return FondoPantalla(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 22),
-        child: ListView(
-          children: [
+        child: LayoutBuilder(builder: (context, constraints) {
+          List<Widget> hijos = [
             CustomAppBar(),
             const Gap(30),
             Row(
@@ -133,33 +133,51 @@ class ProgramarSectoresScreen extends StatelessWidget {
                 ],
               );
             }),
-            Expanded(
-              child: Align(
-                alignment: Alignment.bottomCenter,
-                child: Padding(
-                    padding: const EdgeInsets.only(bottom: 100),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: ElevatedButton(
-                            onPressed: () {},
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: ColorSettings.primario,
-                              elevation: 0,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10)),
-                              padding: const EdgeInsets.symmetric(vertical: 17),
-                            ),
-                            child: const Text('Programar'),
-                          ),
-                        ),
-                      ],
-                    )),
-              ),
-            )
-          ],
-        ),
+            constraints.maxHeight <= 450
+                ? const BotonVerdeAbajo()
+                : const Expanded(
+                    child: BotonVerdeAbajo(),
+                  )
+          ];
+          return constraints.maxHeight <= 450
+              ? ListView(
+                  children: hijos,
+                )
+              : Column(children: hijos);
+        }),
       ),
+    );
+  }
+}
+
+class BotonVerdeAbajo extends StatelessWidget {
+  const BotonVerdeAbajo({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.bottomCenter,
+      child: Padding(
+          padding: const EdgeInsets.only(bottom: 100),
+          child: Row(
+            children: [
+              Expanded(
+                child: ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: ColorSettings.primario,
+                    elevation: 0,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)),
+                    padding: const EdgeInsets.symmetric(vertical: 17),
+                  ),
+                  child: const Text('Programar'),
+                ),
+              ),
+            ],
+          )),
     );
   }
 }

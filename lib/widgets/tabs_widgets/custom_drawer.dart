@@ -1,5 +1,5 @@
 import 'package:ezriegoapp/constants/colores.dart';
-import 'package:ezriegoapp/screens/perfil/historial_screen.dart';
+import 'package:ezriegoapp/screens/screens.dart';
 import 'package:ezriegoapp/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -47,9 +47,12 @@ class CustomDrawer extends StatelessWidget {
                     ),
                     const OpcionDrawer(
                         texto: 'Ayuda y soporte', icono: 'support'),
-                    const OpcionDrawer(
+                    OpcionDrawer(
                       texto: 'Cerrar sesión',
                       icono: 'logout',
+                      funcion: () {
+                        Get.offAllNamed(IntroScreen.ruta);
+                      },
                     ),
                   ],
                 ),
