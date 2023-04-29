@@ -20,23 +20,25 @@ class CustomAppBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           Expanded(
-            flex: 3,
-            child: GestureDetector(
-              onTap: () {
-                if (Get.currentRoute.contains('tab')) {
-                  _tabsController.currentPage = 0;
-                } else {
-                  Get.back();
-                }
-              },
-              child: SvgPicture.asset(
-                home != null && home == true
-                    ? 'assets/svg/isologo_pequeno.svg'
-                    : 'assets/svg/chevron.svg',
-                alignment: Alignment.centerLeft,
-              ),
-            ),
-          ),
+              flex: 3,
+              child: IconButton(
+                onPressed: () {
+                  if (Get.currentRoute.contains('tab')) {
+                    _tabsController.currentPage = 0;
+                  } else {
+                    Get.back();
+                  }
+                },
+                icon: Align(
+                  alignment: Alignment.centerLeft,
+                  child: SvgPicture.asset(
+                    home != null && home == true
+                        ? 'assets/svg/isologo_pequeno.svg'
+                        : 'assets/svg/chevron.svg',
+                    alignment: Alignment.centerLeft,
+                  ),
+                ),
+              )),
           Expanded(
               flex: 8,
               child: Container(
