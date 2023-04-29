@@ -76,27 +76,28 @@ class CustomAppBar extends StatelessWidget {
                       ),
                     )
                   : Container()),
-          Expanded(
-              flex: 2,
-              child: SizedBox(
-                width: MediaQuery.of(context).size.width * 0.10,
-                child: Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: Get.currentRoute.contains('tab')
-                        ? IconButton(
-                            icon: const Icon(Icons.menu_rounded),
-                            iconSize: MediaQuery.of(context).size.width * 0.08,
-                            color: home != null && home == true
-                                ? ColorSettings.blanco
-                                : ColorSettings.negro2,
-                            onPressed: () {
-                              final ScaffoldState scafold =
-                                  Scaffold.of(context);
-                              _tabsController.openDrawer(scafold);
-                            },
-                          )
-                        : Container()),
-              )),
+          Get.currentRoute.contains('tab')
+              ? Expanded(
+                  flex: 2,
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.10,
+                    child: Padding(
+                        padding: const EdgeInsets.only(left: 10),
+                        child: IconButton(
+                          icon: const Icon(Icons.menu_rounded),
+                          iconSize: MediaQuery.of(context).size.width * 0.08,
+                          color: home != null && home == true
+                              ? ColorSettings.blanco
+                              : ColorSettings.negro2,
+                          onPressed: () {
+                            final ScaffoldState scafold = Scaffold.of(context);
+                            _tabsController.openDrawer(scafold);
+                          },
+                        )),
+                  ))
+              : Container(
+                  height: 45,
+                ),
         ],
       ),
     );

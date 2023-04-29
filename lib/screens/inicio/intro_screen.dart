@@ -79,9 +79,11 @@ class IntroScreen extends StatelessWidget {
                               height: 15,
                             ),
                             LoginTextInput(
-                                controllerEmail: controllerPassword,
-                                icono: 'assets/svg/lock.svg',
-                                hint: 'Contraseña'),
+                              controllerEmail: controllerPassword,
+                              icono: 'assets/svg/lock.svg',
+                              hint: 'Contraseña',
+                              isPssword: true,
+                            ),
                             const SizedBox(
                               height: 10,
                             ),
