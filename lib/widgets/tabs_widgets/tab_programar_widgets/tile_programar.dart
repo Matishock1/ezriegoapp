@@ -49,16 +49,17 @@ class TileProgramar extends StatelessWidget {
                 leading: SvgPicture.asset(
                   icono,
                 ),
-                trailing: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 10, vertical: 10),
-                    child: !activo
-                        ? SvgPicture.asset(
-                            'assets/svg/trash.svg',
-                          )
-                        : const SizedBox(
-                            height: 0,
-                          )),
+                trailing: IconButton(
+                  constraints: const BoxConstraints(),
+                  onPressed: () {},
+                  icon: !activo
+                      ? SvgPicture.asset(
+                          'assets/svg/trash.svg',
+                        )
+                      : const SizedBox(
+                          height: 0,
+                        ),
+                ),
                 title: Text(
                   titulo,
                   style: Theme.of(context).textTheme.displayMedium!.copyWith(

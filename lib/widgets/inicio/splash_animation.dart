@@ -1,4 +1,3 @@
-
 import 'package:ezriegoapp/constants/colores.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';

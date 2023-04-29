@@ -2,11 +2,13 @@ import 'package:ezriegoapp/constants/colores.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
+import '../widgets/widgets.dart';
+
 class DetalleReporteScreen extends StatefulWidget {
   const DetalleReporteScreen({super.key});
 
   final gridColor = ColorSettings.terciario;
-  final titleColor = ColorSettings.textButton;
+  final titleColor = const Color(0xffBDBDBD);
   final fashionColor = Colors.red;
   final artColor = Colors.cyan;
   final boxingColor = Colors.green;
@@ -21,184 +23,183 @@ class DetalleReporteScreen extends StatefulWidget {
 class _DetalleReporteScreenState extends State<DetalleReporteScreen> {
   int selectedDataSetIndex = -1;
   double angleValue = 0;
-  bool relativeAngleMode = true;
+  bool relativeAngleMode = false;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                'Title configuration',
-                style: TextStyle(
-                  color: ColorSettings.smallText,
-                ),
-              ),
-              Row(
-                children: [
-                  const Text(
-                    'Angle',
-                    style: TextStyle(
-                      color: ColorSettings.icons,
-                    ),
-                  ),
-                  Slider(
-                    value: angleValue,
-                    max: 360,
-                    onChanged: (double value) =>
-                        setState(() => angleValue = value),
-                  ),
-                  Checkbox(
-                    value: relativeAngleMode,
-                    onChanged: (v) => setState(() => relativeAngleMode = v!),
-                  ),
-                  const Text('Relative'),
-                ],
-              ),
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    selectedDataSetIndex = -1;
-                  });
-                },
-                child: Text(
-                  'Categories'.toUpperCase(),
-                  style: const TextStyle(
-                    fontSize: 32,
-                    fontWeight: FontWeight.w300,
-                    color: ColorSettings.secundario,
+    return FondoPantalla(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 22),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            CustomAppBar(),
+            const Gap(30),
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    'Reporte Sector 1',
+                    style: Theme.of(context).textTheme.titleMedium,
                   ),
                 ),
+              ],
+            ),
+            const Gap(25),
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  selectedDataSetIndex = -1;
+                });
+              },
+              child: Text(
+                '12-02-2023'.toUpperCase(),
+                style: const TextStyle(
+                  fontSize: 32,
+                  fontWeight: FontWeight.w300,
+                  color: ColorSettings.negro2,
+                ),
               ),
-              const SizedBox(height: 4),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: rawDataSets()
-                    .asMap()
-                    .map((index, value) {
-                      final isSelected = index == selectedDataSetIndex;
-                      return MapEntry(
-                        index,
-                        GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              selectedDataSetIndex = index;
-                            });
-                          },
-                          child: AnimatedContainer(
-                            duration: const Duration(milliseconds: 300),
-                            margin: const EdgeInsets.symmetric(vertical: 2),
-                            height: 26,
-                            decoration: BoxDecoration(
-                              color: isSelected
-                                  ? ColorSettings.primario
-                                  : Colors.transparent,
-                              borderRadius: BorderRadius.circular(46),
-                            ),
-                            padding: const EdgeInsets.symmetric(
-                              vertical: 4,
-                              horizontal: 6,
-                            ),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                AnimatedContainer(
-                                  duration: const Duration(milliseconds: 400),
-                                  curve: Curves.easeInToLinear,
-                                  padding: EdgeInsets.all(isSelected ? 8 : 6),
-                                  decoration: BoxDecoration(
-                                    color: value.color,
-                                    shape: BoxShape.circle,
-                                  ),
+            ),
+            const SizedBox(height: 4),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: rawDataSets()
+                  .asMap()
+                  .map((index, value) {
+                    final isSelected = index == selectedDataSetIndex;
+                    return MapEntry(
+                      index,
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            selectedDataSetIndex = index;
+                          });
+                        },
+                        child: AnimatedContainer(
+                          duration: const Duration(milliseconds: 300),
+                          margin: const EdgeInsets.symmetric(vertical: 2),
+                          height: 26,
+                          decoration: BoxDecoration(
+                            color: isSelected
+                                ? ColorSettings.primario
+                                : Colors.transparent,
+                            borderRadius: BorderRadius.circular(46),
+                          ),
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 4,
+                            horizontal: 6,
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              AnimatedContainer(
+                                duration: const Duration(milliseconds: 400),
+                                curve: Curves.easeInToLinear,
+                                padding: EdgeInsets.all(isSelected ? 8 : 6),
+                                decoration: BoxDecoration(
+                                  color: value.color,
+                                  shape: BoxShape.circle,
                                 ),
-                                const SizedBox(width: 8),
-                                AnimatedDefaultTextStyle(
-                                  duration: const Duration(milliseconds: 300),
-                                  curve: Curves.easeInToLinear,
-                                  style: TextStyle(
-                                    color: isSelected
-                                        ? value.color
-                                        : widget.gridColor,
-                                  ),
-                                  child: Text(value.title),
+                              ),
+                              const SizedBox(width: 8),
+                              AnimatedDefaultTextStyle(
+                                duration: const Duration(milliseconds: 300),
+                                curve: Curves.easeInToLinear,
+                                style: TextStyle(
+                                  color: isSelected
+                                      ? value.color
+                                      : ColorSettings.titleMedium,
                                 ),
-                              ],
-                            ),
+                                child: Text(value.title),
+                              ),
+                            ],
                           ),
                         ),
-                      );
-                    })
-                    .values
-                    .toList(),
-              ),
-              AspectRatio(
-                aspectRatio: 1.3,
-                child: RadarChart(
-                  RadarChartData(
-                    radarTouchData: RadarTouchData(
-                      touchCallback: (FlTouchEvent event, response) {
-                        if (!event.isInterestedForInteractions) {
-                          setState(() {
-                            selectedDataSetIndex = -1;
-                          });
-                          return;
-                        }
+                      ),
+                    );
+                  })
+                  .values
+                  .toList(),
+            ),
+            const Gap(40),
+            AspectRatio(
+              aspectRatio: 1.3,
+              child: RadarChart(
+                RadarChartData(
+                  radarTouchData: RadarTouchData(
+                    touchCallback: (FlTouchEvent event, response) {
+                      if (!event.isInterestedForInteractions) {
                         setState(() {
-                          selectedDataSetIndex =
-                              response?.touchedSpot?.touchedDataSetIndex ?? -1;
+                          selectedDataSetIndex = -1;
                         });
-                      },
-                    ),
-                    dataSets: showingDataSets(),
-                    radarBackgroundColor: Colors.transparent,
-                    borderData: FlBorderData(show: false),
-                    radarBorderData: const BorderSide(color: Colors.black),
-                    titlePositionPercentageOffset: 0.2,
-                    titleTextStyle:
-                        TextStyle(color: widget.titleColor, fontSize: 14),
-                    getTitle: (index, angle) {
-                      final usedAngle =
-                          relativeAngleMode ? angle + angleValue : angleValue;
-                      switch (index) {
-                        case 0:
-                          return RadarChartTitle(
-                            text: 'Mobile or Tablet',
-                            angle: usedAngle,
-                          );
-                        case 1:
-                          return RadarChartTitle(text: 'TV', angle: usedAngle);
-                        case 2:
-                          return RadarChartTitle(
-                            text: 'Desktop',
-                            angle: usedAngle,
-                          );
-                        case 3:
-                          return RadarChartTitle(
-                            text: 'asd',
-                            angle: usedAngle,
-                          );
-
-                        default:
-                          return const RadarChartTitle(text: '');
+                        return;
                       }
+                      setState(() {
+                        selectedDataSetIndex =
+                            response?.touchedSpot?.touchedDataSetIndex ?? -1;
+                      });
                     },
-                    tickCount: 1,
-                    ticksTextStyle:
-                        const TextStyle(color: Colors.black, fontSize: 10),
-                    tickBorderData: const BorderSide(color: Colors.black),
-                    gridBorderData:
-                        BorderSide(color: widget.gridColor, width: 2),
                   ),
-                  swapAnimationDuration: const Duration(milliseconds: 400),
+                  dataSets: showingDataSets(),
+                  radarBackgroundColor: Colors.transparent,
+                  borderData: FlBorderData(show: false),
+                  radarBorderData: const BorderSide(color: Colors.black),
+                  titlePositionPercentageOffset: 0.2,
+                  titleTextStyle:
+                      TextStyle(color: widget.titleColor, fontSize: 14),
+                  getTitle: (index, angle) {
+                    final usedAngle =
+                        relativeAngleMode ? angle + angleValue : angleValue;
+                    switch (index) {
+                      case 0:
+                        return RadarChartTitle(
+                          text: 'Enero',
+                          angle: usedAngle,
+                        );
+                      case 1:
+                        return RadarChartTitle(
+                            text: 'Febrero', angle: usedAngle);
+                      case 2:
+                        return RadarChartTitle(
+                          text: 'Marzo',
+                          angle: usedAngle,
+                        );
+                      case 3:
+                        return RadarChartTitle(
+                          text: 'Abril',
+                          angle: usedAngle,
+                        );
+                      case 4:
+                        return RadarChartTitle(
+                          text: 'Mayo',
+                          angle: usedAngle,
+                        );
+                      case 5:
+                        return RadarChartTitle(
+                          text: 'Junio',
+                          angle: usedAngle,
+                        );
+                      case 6:
+                        return RadarChartTitle(
+                          text: 'Julio',
+                          angle: usedAngle,
+                        );
+
+                      default:
+                        return const RadarChartTitle(text: '');
+                    }
+                  },
+                  tickCount: 1,
+                  ticksTextStyle:
+                      const TextStyle(color: Colors.black, fontSize: 10),
+                  tickBorderData: const BorderSide(color: Colors.black),
+                  gridBorderData: BorderSide(color: widget.gridColor, width: 2),
                 ),
+                swapAnimationDuration: const Duration(milliseconds: 400),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
@@ -235,8 +236,12 @@ class _DetalleReporteScreenState extends State<DetalleReporteScreen> {
         title: 'Product 1',
         color: widget.fashionColor,
         values: [
+          180,
           300,
-          50,
+          10,
+          5,
+          15,
+          300,
           250,
         ],
       ),
@@ -245,17 +250,25 @@ class _DetalleReporteScreenState extends State<DetalleReporteScreen> {
         color: widget.artColor,
         values: [
           250,
-          100,
-          200,
+          250,
+          210,
+          50,
+          30,
+          50,
+          250,
         ],
       ),
       RawDataSet(
         title: 'Product 3',
         color: widget.entertainmentColor,
         values: [
-          200,
+          30,
           150,
           50,
+          250,
+          300,
+          180,
+          300,
         ],
       ),
       RawDataSet(
@@ -263,8 +276,12 @@ class _DetalleReporteScreenState extends State<DetalleReporteScreen> {
         color: Colors.amber.shade400,
         values: [
           150,
-          200,
+          300,
+          190,
           150,
+          100,
+          280,
+          300,
         ],
       ),
     ];

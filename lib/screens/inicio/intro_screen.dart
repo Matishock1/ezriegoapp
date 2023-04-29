@@ -9,6 +9,7 @@ class IntroScreen extends StatelessWidget {
   IntroScreen({super.key});
   static const String ruta = '/intro_screen';
   TextEditingController controllerEmail = TextEditingController();
+  TextEditingController controllerPassword = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +79,7 @@ class IntroScreen extends StatelessWidget {
                               height: 15,
                             ),
                             LoginTextInput(
-                                controllerEmail: controllerEmail,
+                                controllerEmail: controllerPassword,
                                 icono: 'assets/svg/lock.svg',
                                 hint: 'Contraseña'),
                             const SizedBox(
@@ -156,7 +157,7 @@ class IntroScreen extends StatelessWidget {
                                   Row(
                                     children: [
                                       Expanded(
-                                          child: Text('Usar huella dactilar',
+                                          child: Text('Usar biometría ',
                                               textAlign: TextAlign.center,
                                               style: Theme.of(context)
                                                   .textTheme
